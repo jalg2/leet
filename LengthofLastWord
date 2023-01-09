@@ -1,0 +1,13 @@
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        sBack = s[::-1] #make backwards copy of string s
+        sBack = sBack.strip() #gets rid of spaces in the front and back of string
+
+        count = 0 #initializing int count
+
+        for i in range(len(sBack)): #loops through indices of sBack
+            if sBack[i] == ' ': #Stops counting when space is found at the current index (end of last word)
+                break
+            else: #Letter is found at current index
+                count += 1 #Count increases by one
+        return count #returns the total number of chars in the last word of a string
