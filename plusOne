@@ -1,0 +1,15 @@
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]: 
+        
+        new = digits[::-1] #creating reversed copy of digits list
+        new[0] += 1 #adding one to the number
+        for i in range(len(new)): #traversing through backwards list forwards
+
+            if new[i] == 10 and i+1 != len(new): #when the integer is 10 but it is not the last one so a new space does not need to ba added
+                new[i + 1] += 1
+                new[i] = 0
+            elif new[i] == 10 and i+1 == len(new): #when the integer is 10 and it is the last one so a new space does have to be added
+                new.append(1)
+                new[i] = 0
+
+        return(new[::-1]) #return reverse of reversed list, i.e the correctly ordered list
